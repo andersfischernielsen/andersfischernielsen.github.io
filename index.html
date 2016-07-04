@@ -32,6 +32,7 @@
     <script type="text/javascript">
         //Load content for site.
         function get_content_from_url(url) {
+            xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                     return JSON.parse(xmlhttp.responseText);
@@ -42,6 +43,7 @@
             xmlhttp.send();
         }
 
+        debugger;
         var about_content = get_content_from_url("https://andersfischernielsen.github.io/content/about.json");
         var project_content = get_content_from_url("https://andersfischernielsen.github.io/content/projects.json");
     </script>
