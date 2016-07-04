@@ -29,6 +29,22 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script type="text/javascript">
+        //Load content for site.
+        function get_content_from_url(url) {
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    return JSON.parse(xmlhttp.responseText);
+                }
+            };
+
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
+        var about_content = get_content_from_url("https://andersfischernielsen.github.io/content/about.json");
+        var project_content = get_content_from_url("https://andersfischernielsen.github.io/content/projects.json");
+    </script>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">

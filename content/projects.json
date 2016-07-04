@@ -1,0 +1,36 @@
+{
+	"intro": "I've been working on a bunch of projects over the course of the years I've been developing. Some of them are highlighted below.",
+	"projects": 
+		[
+			{
+				"title": "Consensus of History in Distributed DCR Graphs",
+				"link": "https://github.com/mljjlm/Distributed-Consensus",
+				"description": "Bachelor thesis.",
+			},
+			{
+				"title": "Traktor Auto Next Song",
+				"link": "https://github.com/andersfischernielsen/TraktorAutoNextSong",
+				"description": "A small app for finding good DJ transitions. Written in <i>F#</i> and <i>JavaScript</i>."
+			},
+			{
+				"title": "Distributed DCR Graphs",
+				"link": "https://github.com/andersfischernielsen/FlowIT-Second-Year-Project",
+				"description": "A school project implementing a concurrent distributed workflow system.",
+			},
+			{
+				"title": "Full Stack Development",
+				"link": "http://www.iap-association.org",
+				"description": "<i>.NET</i> Full Stack Development at the <i>International Association of Prosecutors</i> for two years.",
+			},
+			{
+				"title": "Café Analog API & website",
+				"link": "https://github.com/AnalogIO/Analog-API-Website",
+				"description": "An API and a website for opening hours for the café.</p>",
+			},
+			{
+				"title": "ScrollBar Visuals",
+				"link": "https://github.com/andersfischernielsen/ScrollBar-Visual",
+				"description": "A simple, fun website displaying random VDJ visuals on a big wall.",
+			},
+		]
+}
