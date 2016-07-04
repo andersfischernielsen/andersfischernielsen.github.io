@@ -28,25 +28,6 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <script type="text/javascript">
-        //Load content for site.
-        function get_content_from_url(url) {
-            xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function() {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    return JSON.parse(xmlhttp.responseText);
-                }
-            };
-
-            xmlhttp.open("GET", url, true);
-            xmlhttp.send();
-        }
-
-        debugger;
-        var about_content = get_content_from_url("/content/about.json");
-        var project_content = get_content_from_url("/content/projects.json");
-    </script>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -109,8 +90,10 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>About me</h2>
-                <p>I'm studying Software Development at the IT University of Copenhagen, where I'm currently writing my bachelor thesis dealing with consensus in distributed systems.</p>
-                <p>I have a passion for developing software and love all aspects of it, be it software architecture, developing distributed algorithms, implementing APIs etc. etc.</p>
+                <div class="about-content">
+                    <p>I have a passion for developing software and love all aspects of it, be it software architecture, developing distributed algorithms, implementing APIs etc. etc.</p>
+                    <p>I have a bachelor of Software Development at the IT University of Copenhagen, where I've written a thesis dealing with consensus in distributed systems. I'm currently studying for a MSc in Software Development at the IT Univeristy as well.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -126,6 +109,13 @@
 	        </div>
         </div>
         <div class="row">
+            <a href="https://github.com/mljjlm/Distributed-Consensus" class="col-lg-4 project-box">
+                <div class="project-box-background" id="project-box-3"></div>
+                <div class="project-box-inner">
+                    <h2>Consensus of History in Distributed DCR Graphs</h2>
+                    <p>Bachelor thesis.</p>
+                </div>
+            </a>
             <a href="https://github.com/andersfischernielsen/TraktorAutoNextSong" class="col-lg-4 project-box">
                 <div class="project-box-background" id="project-box-1"></div>
             	<div class="project-box-inner">
@@ -140,13 +130,6 @@
                 	<p>A school project implementing a concurrent distributed workflow system.</p>
                 </div>
             </a>
-            <a href="https://github.com/AnalogIO/CafeAnalogIOS" class="col-lg-4 project-box">
-                <div class="project-box-background" id="project-box-3"></div>
-                <div class="project-box-inner">
-                	<h2>Café Analog iOS App</h2>
-                	<p>A small iOS app showing opening hours of the café.</p>
-                </div>
-            </a>
     	</div>
         <div class="row">
             <a href="http://www.iap-association.org/" class="col-lg-4 project-box">
@@ -156,18 +139,18 @@
                 	<p><i>.NET</i> Full Stack Development at the <i>International Association of Prosecutors</i> for two years.</p>
                 </div>
             </a>
+            <a href="https://github.com/AnalogIO/Analog-API-Website" class="col-lg-4 project-box">
+                <div class="project-box-background" id="project-box-6"></div>
+                <div class="project-box-inner">
+                    <h2>Café Analog API & website</h2>
+                    <p>An API and website displaying opening hours in the café.</p>
+                </div>
+            </a>
             <a href="https://github.com/andersfischernielsen/ScrollBar-Visual" class="col-lg-4 project-box">
                 <div class="project-box-background" id="project-box-5"></div>
                 <div class="project-box-inner">
                 	<h2>ScrollBar Visuals</h2>
                 	<p>A simple, fun website displaying random VDJ visuals on a big wall. </p>
-                </div>
-            </a>
-            <a href="https://github.com/AnalogIO/Analog-API-Website" class="col-lg-4 project-box">
-                <div class="project-box-background" id="project-box-6"></div>
-                <div class="project-box-inner">
-                	<h2>Café Analog API & website</h2>
-                	<p>A <i>JSON</i> API for opening hours for the café and a website displaying opening hours and <i>GIFs</i>.</p>
                 </div>
             </a>
     	</div>
