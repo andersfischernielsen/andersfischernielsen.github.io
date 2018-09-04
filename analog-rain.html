@@ -1,0 +1,82 @@
+<html> 
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript">
+			const MAX_COFFEES = () => (window.innerWidth/100)|0
+			const shouldDo = () => Math.random() >= 0.5
+			var coffees = 1
+
+			function rain() {
+				if (coffees <= MAX_COFFEES()) {
+					const where = window.innerWidth * Math.random()
+					const span = document.createElement("div")
+					span.classList.add('coffee')
+					if (shouldDo()) {
+						span.classList.add('rain-clockwise')
+					} else {
+						span.classList.add('rain-counterclockwise')
+					}
+					span.style= 'left:' + where
+					span.innerText = '☕️'
+					document.body.appendChild(span)
+					coffees++
+
+					setTimeout(() => {
+						span.parentNode.removeChild(span)
+						coffees--
+					}, 4000)
+				}
+			}
+
+			window.setInterval(() => {
+			  	if (coffees < MAX_COFFEES()) {
+			  		rain()
+			  	}
+			}, 500);
+		</script>
+		<title>Analog Rain</title></head>
+	<body style="background-color: black">
+		<div id="logo">ANALOG</div>
+	</body>
+	<style type="text/css">
+		@keyframes rain-clockwise {
+			from { top: -110px; transform: rotate(0deg); display: block;}
+			to { top: 110vh; transform: rotate(300deg); display: none }
+		}
+
+		@keyframes rain-counterclockwise {
+			from { top: -110px; transform: rotate(0deg); display: block;}
+			to { top: 110vh; transform: rotate(-280deg); display: none }
+		}
+
+		.coffee {
+			font-size: 100;
+			position: fixed;
+		}
+
+		.rain-clockwise {
+			animation: rain-clockwise 4s normal ease-in;
+			animation-iteration-count: 1
+		}
+
+		.rain-counterclockwise {
+			animation: rain-counterclockwise 4s normal ease-in;
+			animation-iteration-count: 1
+		}
+
+		body {
+			overflow: hidden;
+		}
+
+		#logo {
+			position: absolute;
+			left: -5vw;
+			top: 20vh;
+			font-size: 24vw;
+			color: #222;
+			font-family: Futura;
+			font-weight: 100;
+			transform: rotate(-20deg);
+		}
+	</style>
+<html>
