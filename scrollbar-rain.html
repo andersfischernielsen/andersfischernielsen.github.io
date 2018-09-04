@@ -1,0 +1,79 @@
+<html> 
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript">
+			const MAX_DRINKS = () => (window.innerWidth/100)|0
+			const shouldDo = () => Math.random() >= 0.5
+			const drinks = ['🍺','🍹','🍸', '🥃', '💃🏼', '🕺🏼']
+			var currentDrinks = 1
+
+			function rain() {
+				if (currentDrinks <= MAX_DRINKS()) {
+					const where = window.innerWidth * Math.random()
+					const span = document.createElement("div")
+					span.classList.add('coffee')
+					if (shouldDo()) {
+						span.classList.add('rain-clockwise')
+					} else {
+						span.classList.add('rain-counterclockwise')
+					}
+					span.style= 'left:' + where
+					span.innerText = drinks[((Math.random()*drinks.length)+'')|0]
+					document.body.appendChild(span)
+					currentDrinks++
+
+					setTimeout(() => {
+						span.parentNode.removeChild(span)
+						currentDrinks--
+					}, 4000)
+				}
+			}
+
+			window.setInterval(() => {
+			  	if (currentDrinks < MAX_DRINKS()) {
+			  		rain()
+			  	}
+			}, 500);
+		</script>
+		<title>ScrollBar Rain</title></head>
+	<body style="background-color: black">
+		<div id="logo">SCROLL</br>BAR</div>
+	</body>
+	<style type="text/css">
+		@keyframes rain-clockwise {
+			from { top: -110px; transform: rotate(0deg); display: block;}
+			to { top: 110vh; transform: rotate(300deg); display: none }
+		}
+
+		@keyframes rain-counterclockwise {
+			from { top: -110px; transform: rotate(0deg); display: block;}
+			to { top: 110vh; transform: rotate(-280deg); display: none }
+		}
+
+		.coffee {
+			font-size: 100;
+			position: fixed;
+		}
+
+		.rain-clockwise {
+			animation: rain-clockwise 4s normal ease-in;
+			animation-iteration-count: 1
+		}
+
+		.rain-counterclockwise {
+			animation: rain-counterclockwise 4s normal ease-in;
+			animation-iteration-count: 1
+		}
+
+		#logo {
+			position: absolute;
+			left: 10vw;
+			top: 20vh;
+			line-height: 0.8;
+			font-size: 130px;
+			font-family: Hill;
+			font-weight: 100;
+			color: yellow;
+		}
+	</style>
+<html>
