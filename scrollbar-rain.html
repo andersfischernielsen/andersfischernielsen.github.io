@@ -4,13 +4,20 @@
 		<script type="text/javascript">
 			const MAX_DRINKS = () => (window.innerWidth/100)|0
 			const shouldDo = () => Math.random() >= 0.5
-			const drinks = ['🍺','🍹','🍸', '🥃', '💃🏼', '🕺🏼']
+			const drinks = [
+				'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/129/beer-mug_1f37a.png', 
+				'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/129/tumbler-glass_1f943.png',
+				'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/129/tropical-drink_1f379.png',
+				'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/129/cocktail-glass_1f378.png',
+				'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/129/dancer_emoji-modifier-fitzpatrick-type-3_1f483-1f3fc_1f3fc.png',
+				'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/129/man-dancing_emoji-modifier-fitzpatrick-type-3_1f57a-1f3fc_1f3fc.png'
+			]
 			var currentDrinks = 1
 
 			function rain() {
 				if (currentDrinks <= MAX_DRINKS()) {
 					const where = window.innerWidth * Math.random()
-					const span = document.createElement("div")
+					const span = document.createElement("img")
 					span.classList.add('coffee')
 					if (shouldDo()) {
 						span.classList.add('rain-clockwise')
@@ -18,7 +25,7 @@
 						span.classList.add('rain-counterclockwise')
 					}
 					span.style= 'left:' + where
-					span.innerText = drinks[((Math.random()*drinks.length)+'')|0]
+					span.src = drinks[((Math.random()*drinks.length)+'')|0]
 					document.body.appendChild(span)
 					currentDrinks++
 
@@ -51,7 +58,7 @@
 		}
 
 		.coffee {
-			font-size: 100;
+			height: 90px;
 			position: fixed;
 		}
 
