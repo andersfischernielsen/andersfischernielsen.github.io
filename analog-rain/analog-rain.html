@@ -9,7 +9,7 @@
 			function rain() {
 				if (coffees <= MAX_COFFEES()) {
 					const where = window.innerWidth * Math.random()
-					const span = document.createElement("div")
+					const span = document.createElement("img")
 					span.classList.add('coffee')
 					if (shouldDo()) {
 						span.classList.add('rain-clockwise')
@@ -17,7 +17,7 @@
 						span.classList.add('rain-counterclockwise')
 					}
 					span.style= 'left:' + where
-					span.innerText = '☕️'
+					span.src = 'coffee.png'
 					document.body.appendChild(span)
 					coffees++
 
@@ -50,8 +50,8 @@
 		}
 
 		.coffee {
-			font-size: 100;
 			position: fixed;
+			height: 100px;
 		}
 
 		.rain-clockwise {
