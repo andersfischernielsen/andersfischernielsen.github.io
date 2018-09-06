@@ -1,0 +1,86 @@
+<html> 
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript">
+			const MAX_DRINKS = () => (window.innerWidth/100)|0
+			const shouldDo = () => Math.random() >= 0.5
+			const drinks = [
+				'beer.png', 
+				'cocktail.png',
+				'tumbler.png',
+				'tropical-drink.png',
+				'dancer.png',
+				'man-dancing.png',
+				'rowboat.png',
+				'canoe.png',
+				'trophy.png'
+			]
+			var currentDrinks = 1
+
+			function rain() {
+				if (currentDrinks <= MAX_DRINKS()) {
+					const where = window.innerWidth * Math.random()
+					const span = document.createElement("img")
+					span.classList.add('coffee')
+					if (shouldDo()) {
+						span.classList.add('rain-clockwise')
+					} else {
+						span.classList.add('rain-counterclockwise')
+					}
+					span.style= 'left:' + where
+					span.src = drinks[((Math.random()*drinks.length)+'')|0]
+					document.body.appendChild(span)
+					currentDrinks++
+
+					setTimeout(() => {
+						span.parentNode.removeChild(span)
+						currentDrinks--
+					}, 4000)
+				}
+			}
+
+			window.setInterval(() => {
+			  	if (currentDrinks < MAX_DRINKS()) {
+			  		rain()
+			  	}
+			}, 500);
+		</script>
+		<title>ScrollBar Rain</title></head>
+	<body style="background-color: black">
+		<img src="logo.png" id="logo"></img>
+	</body>
+	<style type="text/css">
+		@keyframes rain-clockwise {
+			from { top: -110px; transform: rotate(0deg); display: block;}
+			to { top: 110vh; transform: rotate(300deg); display: none }
+		}
+
+		@keyframes rain-counterclockwise {
+			from { top: -110px; transform: rotate(0deg); display: block;}
+			to { top: 110vh; transform: rotate(-280deg); display: none }
+		}
+
+		.coffee {
+			height: 90px;
+			position: fixed;
+		}
+
+		.rain-clockwise {
+			animation: rain-clockwise 4s normal ease-in;
+			animation-iteration-count: 1
+		}
+
+		.rain-counterclockwise {
+			animation: rain-counterclockwise 4s normal ease-in;
+			animation-iteration-count: 1
+		}
+
+		#logo {
+			position: absolute;
+			display: inline-block;
+			left: 10vw;
+			top: 20vh;
+			height: 260px;
+		}
+	</style>
+<html>
